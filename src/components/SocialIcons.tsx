@@ -6,6 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
+import { childAnimation, containerAnimation } from "@/utils/animations";
 
 interface IconsProps {
     isSmall: boolean;
@@ -34,26 +35,10 @@ export default function SocialIcons({ isSmall }: IconsProps) {
         ? "px-[clamp(_6px,_2vw,_15px)]"
         : "px-[clamp(_6px,_2vw,_15px)]";
 
-    const container = {
-        hidden: {},
-        visible: {
-            transition: { delayChildren: 0.5, staggerChildren: 0.2 }
-        },
-    };
-
-    const item = {
-        hidden: { opacity: 0, y: 15 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.4, ease: "easeOut" as const},
-        },
-    };
-
     return (
         <motion.span
             className="flex items-center"
-            variants={container}
+            variants={containerAnimation}
             initial="hidden"
             animate="visible"
         >
@@ -67,7 +52,7 @@ export default function SocialIcons({ isSmall }: IconsProps) {
                     key={id}
                     href={href}
                     target={"_blank"}
-                    variants={item}
+                    variants={childAnimation}
                     className={gapClass}
                     onMouseEnter={() => setHovered(id)}
                     onMouseLeave={() => setHovered(null)}
