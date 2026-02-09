@@ -7,6 +7,7 @@ import { useState } from "react";
 import Heading from "@/components/Heading";
 import Project from "@/components/Project";
 import { AnimatePresence, motion } from "framer-motion";
+import { childAnimation, containerAnimation } from "@/utils/animations";
 
 
 export default function PortfolioPage() {
@@ -42,35 +43,11 @@ export default function PortfolioPage() {
                     : p.category === activeFilter
             );
 
-    const container = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.15,
-            },
-        },
-    };
-
-    const item = {
-        hidden: { opacity: 0, y: 20, filter: "blur(10px)", scale: 0.97 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1] as const,
-            },
-        },
-    };
-
     return (
         <motion.section
             id="portfolio"
             className="section min-h-screen mb-[clamp(64px,_20vw,_128px)]"
-            variants={container}
+            variants={containerAnimation}
             initial="hidden"
             animate="visible"
         >
@@ -82,7 +59,7 @@ export default function PortfolioPage() {
 
             {/* Filters */}
             <motion.div
-                variants={item}
+                variants={childAnimation}
                 className="w-full flex justify-end mt-12 sm:mt-0"
             >
                 <div className="flex flex-col justify-end">
@@ -128,13 +105,10 @@ export default function PortfolioPage() {
                     {filteredProjects.map((p) => (
                         <motion.div
                             key={p.id}
-                            initial={{ opacity: 0, y: 30, scale: 0.95, filter: "blur(6px)" }}
-                            animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                            exit={{ opacity: 0, y: 30, scale: 0.95, filter: "blur(6px)" }}
-                            transition={{
-                                duration: 0.5,
-                                ease: [0.22, 1, 0.36, 1],
-                            }}
+                            variants={childAnimation}
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
                             onMouseEnter={() => setHovered(p.id)}
                             onMouseLeave={() => setHovered(null)}
                         >

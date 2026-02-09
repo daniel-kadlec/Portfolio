@@ -8,22 +8,13 @@ import { FaXTwitter } from "react-icons/fa6";
 import ToastContainer from "../../components/ToastContainer";
 import ContactForm from "../../components/ContactForm";
 import React, { useState } from "react";
+import { childAnimation, containerAnimation } from "@/utils/animations";
 
 interface ToastItem {
     id: number;
     message: string;
     success: boolean | null;
 }
-const container = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
-};
-
-const item = {
-    hidden: { opacity: 0, y: 20, scale: 0.97, filter: "blur(2px)" },
-    visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transition: { duration: 0.6 } },
-};
-
 export default function Contact() {
     const { dict } = useLanguage();
     const [toasts, setToasts] = useState<ToastItem[]>([]);
@@ -41,7 +32,7 @@ export default function Contact() {
                 className="section flex mb-[clamp(64px,_15vw,_120px)] flex-col"
                 initial="hidden"
                 whileInView="visible"
-                variants={container}
+                variants={containerAnimation}
                 viewport={{ once: true, amount: 0.5 }}
             >
                 <Heading
@@ -50,8 +41,8 @@ export default function Contact() {
                 />
 
                 <div className="flex gap-8 lg:flex-row flex-col">
-                    <motion.div variants={container} className="lg:w-1/2">
-                        <motion.p variants={item} className="text text-body-large font-bold">
+                    <motion.div variants={containerAnimation} className="lg:w-1/2">
+                        <motion.p variants={childAnimation} className="text text-body-large font-bold">
                             {dict.contact.paragraph()}
                         </motion.p>
                         <SocialLinks/>
@@ -80,7 +71,7 @@ function SocialLinks() {
             className="text text-[clamp(20px,2vw,34px)] font-bold flex justify-center px-10 xs:px-0 xs:grid xs:grid-cols-2 lg:flex lg:flex-col gap-12 xs:gap-6 mt-8"
             initial="hidden"
             whileInView="visible"
-            variants={container}
+            variants={containerAnimation}
             viewport={{ once: true, amount: 0.5 }}
         >
             {links.map(({ href, label, icon }) => (
@@ -88,7 +79,7 @@ function SocialLinks() {
                     key={href}
                     href={href}
                     target="_blank"
-                    variants={item}
+                    variants={childAnimation}
                     className="cursor-pointer w-fit hover:underline flex items-center gap-5 text-[40px]"
                 >
                     {icon}
