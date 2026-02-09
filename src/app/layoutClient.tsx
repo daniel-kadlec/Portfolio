@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LoadingOverlay from "@/components/LoadingOverlay";
 import { ThemeProvider, useTheme } from "@/utils/ThemeContext";
 import { LanguageProvider } from "@/utils/LanguageContext";
 import { useEffect, useState } from "react";
@@ -52,14 +53,16 @@ export default function ClientRoot({ children }: { children: React.ReactNode }) 
     return (
         <ThemeProvider>
             <LanguageProvider>
-                <div className="relative min-h-screen overflow-x-hidden antialiased">
-                    <BackgroundLayers />
-                    <div className="relative z-10 transition-all duration-500">
-                        {!shouldHideNav && <Navbar />}
-                        {children}
-                        {!shouldHideNav && <Footer />}
+                <LoadingOverlay>
+                    <div className="relative min-h-screen overflow-x-hidden antialiased">
+                        <BackgroundLayers />
+                        <div className="relative z-10 transition-all duration-500">
+                            {!shouldHideNav && <Navbar />}
+                            {children}
+                            {!shouldHideNav && <Footer />}
+                        </div>
                     </div>
-                </div>
+                </LoadingOverlay>
             </LanguageProvider>
         </ThemeProvider>
     );

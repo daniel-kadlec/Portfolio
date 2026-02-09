@@ -1,6 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import LoadingOverlay from "../components/LoadingOverlay";
 import ClientRoot from "./layoutClient";
 
 export const metadata: Metadata = {
@@ -19,9 +18,7 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body>
-        <LoadingOverlay>
             <ClientRoot>{children}</ClientRoot>
-        </LoadingOverlay>
         </body>
         </html>
     );

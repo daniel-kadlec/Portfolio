@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { defaultLocale, type Locale } from '@/i18n-config';
 import { getDictionary, type Dictionary } from '@/dictionaries/dictionaries';
 
@@ -10,18 +10,18 @@ type LanguageContextType = {
     setLang: (l: Locale) => void;
 };
 
-const getStoredLang = (): Locale => {
-    if (typeof window !== 'undefined') {
-        const stored = localStorage.getItem('locale');
-        if (stored && (stored === 'cz' || stored === 'en')) return stored as Locale;
-    }
-    return defaultLocale;
-};
-
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-    const [lang, setLangState] = useState<Locale>(getStoredLang());
+    const [lang, setLangState] = useState<Locale>(defaultLocale);
+
+    useEffect(() => {
+        const stored = localStorage.getItem('locale');
+        if (stored === 'cz' || stored === 'en') {
+            setLangState(stored);
+        }
+    }, []);
+
     const dict = getDictionary(lang);
 
     const setLang = (newLang: Locale) => {
