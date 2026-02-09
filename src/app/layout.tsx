@@ -18,15 +18,6 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body>
-            <noscript>
-                <style>{`
-                    .app-loader{display:none!important}
-                    .app-content{opacity:1!important}
-                    [style*="opacity: 0"]{opacity:1!important}
-                    [style*="filter: blur"]{filter:none!important}
-                    [style*="transform:"]{transform:none!important}
-                `}</style>
-            </noscript>
             <ClientRoot>{children}</ClientRoot>
         </body>
         </html>
