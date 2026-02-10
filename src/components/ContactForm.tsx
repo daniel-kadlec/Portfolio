@@ -5,7 +5,6 @@ import Input from "@/components/Input";
 import React, { useState } from "react";
 import {useLanguage} from "@/utils/LanguageContext";
 import Button from "@/components/Button";
-import { containerAnimation } from "@/utils/animations";
 
 interface ContactFormProps {
     showToast: (message: string, success: boolean | null) => void;
@@ -82,6 +81,20 @@ export default function ContactForm({showToast }: ContactFormProps) {
     function handleInputChange(field: keyof typeof errors) {
         setErrors((prev) => ({ ...prev, [field]: false }));
     }
+    const container = {
+        hidden: { opacity: 0, y: 40, scale: 0.97, filter: "blur(20px)" },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            filter: "blur(0px)",
+            transition: {
+                duration: 0.5,
+                ease: "easeOut" as const
+            }
+        },
+    };
+
 
     return (
         <motion.form
@@ -91,7 +104,7 @@ export default function ContactForm({showToast }: ContactFormProps) {
             className="flex flex-col gap-4 w-full lg:w-1/2 text flex-1"
             initial="hidden"
             whileInView="visible"
-            variants={containerAnimation}
+            variants={container}
             viewport={{ once: true, amount: 0.5 }}
         >
 
