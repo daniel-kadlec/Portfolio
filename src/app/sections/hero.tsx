@@ -19,17 +19,12 @@ export default function Hero() {
             <motion.div className="relative z-10 flex flex-col justify-start">
                 <motion.h1
                     className="text-h1 !text-[clamp(36px,_7vw,_64px)]"
-                    initial={{
-                        opacity: 0,
-                        y: 20,
-                        scale: 0.97,
-                        filter: "blur(4px)",
-                    }}
+                    initial={false}
                     animate={{
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        filter: "blur(0px)",
+                        opacity: [0, 1],
+                        y: [20, 0],
+                        scale: [0.97, 1],
+                        filter: ["blur(4px)", "blur(0px)"],
                         transition: {
                             ease: [0.22, 1, 0.36, 1],
                             opacity: { delay: 0.6, duration: 0.4 },
@@ -44,17 +39,12 @@ export default function Hero() {
 
                 <motion.h2
                     className="text-body-large"
-                    initial={{
-                        opacity: 0,
-                        y: 20,
-                        scale: 0.97,
-                        filter: "blur(4px)",
-                    }}
+                    initial={false}
                     animate={{
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        filter: "blur(0px)",
+                        opacity: [0, 1],
+                        y: [20, 0],
+                        scale: [0.97, 1],
+                        filter: ["blur(4px)", "blur(0px)"],
                         transition: {
                             ease: [0.22, 1, 0.36, 1],
                             opacity: { delay: 0.7, duration: 0.4 },
@@ -71,17 +61,12 @@ export default function Hero() {
             {/* Social icons & button */}
             <motion.div
                 className="relative z-10 flex flex-col items-end gap-[clamp(10px,_4vw,_20px)] mt-[clamp(48px,_4vw,_32px)]"
-                initial={{
-                    opacity: 0,
-                    y: 20,
-                    scale: 0.95,
-                    filter: "blur(8px)",
-                }}
+                initial={false}
                 animate={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    filter: "blur(0px)",
+                    opacity: [0, 1],
+                    y: [20, 0],
+                    scale: [0.95, 1],
+                    filter: ["blur(8px)", "blur(0px)"],
                 }}
                 transition={{
                     delay: 0.8,

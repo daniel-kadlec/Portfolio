@@ -18,11 +18,11 @@ export default function Footer() {
     return (
         <motion.footer
             className="section overflow-hidden"
-            initial={{ opacity: 0, y: -40, filter: "blur(8px)" }}
+            initial={false}
             whileInView={{
-                opacity: 1,
-                y: 0,
-                filter: "blur(0px)",
+                opacity: [0, 1],
+                y: [-40, 0],
+                filter: ["blur(8px)", "blur(0px)"],
                 transition: { duration: 0.6, ease: "easeOut", delay: 0.2},
             }}
             viewport={{ once: true, amount: 0.2 }}

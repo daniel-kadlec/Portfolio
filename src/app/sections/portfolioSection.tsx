@@ -33,7 +33,7 @@ export default function PortfolioSection() {
             id="portfolio"
             className="section mb-[clamp(124px,_25vw,_256px)]"
             variants={containerAnimation}
-            initial="hidden"
+            initial={false}
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}
         >

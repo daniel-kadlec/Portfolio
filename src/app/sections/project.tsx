@@ -125,7 +125,7 @@ export default function Project({ project }: { project: ProjectType }) {
                 id="project"
                 className="section !max-w-[1550px] relative py-[clamp(112px,_25vw,_150px)]"
                 variants={containerAnimation}
-                initial="hidden"
+                initial={false}
                 whileInView="visible"
                 animate="visible"
             >

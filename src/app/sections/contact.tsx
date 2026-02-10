@@ -30,7 +30,7 @@ export default function Contact() {
             <motion.section
                 id="contact"
                 className="section flex mb-[clamp(64px,_15vw,_120px)] flex-col"
-                initial="hidden"
+                initial={false}
                 whileInView="visible"
                 variants={containerAnimation}
                 viewport={{ once: true, amount: 0.5 }}
@@ -69,7 +69,7 @@ function SocialLinks() {
     return (
         <motion.div
             className="text text-[clamp(20px,2vw,34px)] font-bold flex justify-center px-10 xs:px-0 xs:grid xs:grid-cols-2 lg:flex lg:flex-col gap-12 xs:gap-6 mt-8"
-            initial="hidden"
+            initial={false}
             whileInView="visible"
             variants={containerAnimation}
             viewport={{ once: true, amount: 0.5 }}

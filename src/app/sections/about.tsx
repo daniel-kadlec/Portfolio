@@ -14,7 +14,7 @@ export default function About() {
             id="about"
             className="section flex flex-col md:flex-row mb-[clamp(124px,_25vw,_256px)]"
             variants={containerAnimation}
-            initial="hidden"
+            initial={false}
             whileInView="visible"
             viewport={{ once: true, amount: 0.5}}
         >

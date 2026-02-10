@@ -82,12 +82,12 @@ export default function ContactForm({showToast }: ContactFormProps) {
         setErrors((prev) => ({ ...prev, [field]: false }));
     }
     const container = {
-        hidden: { opacity: 0, y: 40, scale: 0.97, filter: "blur(20px)" },
+        hidden: {},
         visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            filter: "blur(0px)",
+            opacity: [0, 1],
+            y: [40, 0],
+            scale: [0.97, 1],
+            filter: ["blur(20px)", "blur(0px)"],
             transition: {
                 duration: 0.5,
                 ease: "easeOut" as const
@@ -102,7 +102,7 @@ export default function ContactForm({showToast }: ContactFormProps) {
             id="contactform"
             onSubmit={submitForm}
             className="flex flex-col gap-4 w-full lg:w-1/2 text flex-1"
-            initial="hidden"
+            initial={false}
             whileInView="visible"
             variants={container}
             viewport={{ once: true, amount: 0.5 }}

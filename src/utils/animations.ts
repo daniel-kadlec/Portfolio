@@ -11,12 +11,12 @@ export const containerAnimation: Variants = {
 };
 
 export const childAnimation: Variants = {
-    hidden: { opacity: 0, y: 20, filter: "blur(10px)", scale: 0.98 },
+    hidden: {},
     visible: {
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-        scale: 1,
+        opacity: [0, 1],
+        y: [20, 0],
+        filter: ["blur(10px)", "blur(0px)"],
+        scale: [0.98, 1],
         transition: {
             duration: 0.6,
             ease: [0.22, 1, 0.36, 1],

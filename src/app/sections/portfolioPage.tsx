@@ -48,7 +48,7 @@ export default function PortfolioPage() {
             id="portfolio"
             className="section min-h-screen mb-[clamp(64px,_20vw,_128px)]"
             variants={containerAnimation}
-            initial="hidden"
+            initial={false}
             animate="visible"
         >
             <Heading
@@ -106,7 +106,7 @@ export default function PortfolioPage() {
                         <motion.div
                             key={p.id}
                             variants={childAnimation}
-                            initial="hidden"
+                            initial={false}
                             animate="visible"
                             exit="hidden"
                             onMouseEnter={() => setHovered(p.id)}

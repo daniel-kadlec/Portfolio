@@ -42,10 +42,10 @@ export default function SocialIcons({ isSmall }: IconsProps) {
     };
 
     const item = {
-        hidden: { opacity: 0, y: 15 },
+        hidden: {},
         visible: {
-            opacity: 1,
-            y: 0,
+            opacity: [0, 1],
+            y: [15, 0],
             transition: { duration: 0.4, ease: "easeOut" as const},
         },
     };
@@ -54,7 +54,7 @@ export default function SocialIcons({ isSmall }: IconsProps) {
         <motion.span
             className="flex items-center"
             variants={container}
-            initial="hidden"
+            initial={false}
             animate="visible"
         >
             {[

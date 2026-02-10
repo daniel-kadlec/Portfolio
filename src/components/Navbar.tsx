@@ -64,17 +64,12 @@ export default function Navbar() {
     return (
         <motion.header
             className="section w-full fixed top-0 left-1/2 -translate-x-1/2 z-[99]"
-            initial={{
-                y: "-100%",
-                scale: 0.9,
-                opacity: 0,
-                filter: "blur(8px)"
-            }}
+            initial={false}
             animate={{
-                y: 0,
-                scale: 1,
-                opacity: 1,
-                filter: "blur(0px)"
+                y: ["-100%", 0],
+                scale: [0.9, 1],
+                opacity: [0, 1],
+                filter: ["blur(8px)", "blur(0px)"]
             }}
             transition={{
                 duration: 0.8,
