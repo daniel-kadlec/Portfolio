@@ -53,7 +53,7 @@ export default function ClientRoot({ children }: { children: React.ReactNode }) 
     return (
         <ThemeProvider>
             <LanguageProvider>
-                <LoadingOverlay>
+                {/*<LoadingOverlay>*/}
                     <div className="relative min-h-screen overflow-x-hidden antialiased">
                         <BackgroundLayers />
                         <div className="relative z-10 transition-all duration-500">
@@ -62,7 +62,7 @@ export default function ClientRoot({ children }: { children: React.ReactNode }) 
                             {!shouldHideNav && <Footer />}
                         </div>
                     </div>
-                </LoadingOverlay>
+                {/*</LoadingOverlay>*/}
             </LanguageProvider>
         </ThemeProvider>
     );
