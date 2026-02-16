@@ -1,6 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import LoadingOverlay from "../components/LoadingOverlay";
 import ClientRoot from "./layoutClient";
 
 export const metadata: Metadata = {
@@ -17,11 +16,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
+        <html lang="en" className="dark" suppressHydrationWarning>
         <body>
-        <LoadingOverlay>
             <ClientRoot>{children}</ClientRoot>
-        </LoadingOverlay>
         </body>
         </html>
     );

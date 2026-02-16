@@ -1,6 +1,6 @@
 'use client'
 
-import {AnimatePresence, motion} from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useLanguage } from "@/utils/LanguageContext";
 import Project from "@/components/Project";
@@ -10,6 +10,7 @@ import { projectsCz } from "@/data/projects/projects.cz";
 import Button from "@/components/Button";
 import Link from "next/link";
 import {TechName} from "@/components/Technologies";
+import { childAnimation, containerAnimation } from "@/utils/animations";
 
 export default function PortfolioSection() {
     const { lang, dict } = useLanguage();
@@ -27,35 +28,11 @@ export default function PortfolioSection() {
         `;
     };
 
-    const container = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: 0.25,
-                delayChildren: 0.1,
-            },
-        },
-    };
-
-    const item = {
-        hidden: { opacity: 0, y: 20, filter: "blur(10px)", scale: 0.98 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1] as const,
-            },
-        },
-    };
-
     return (
         <motion.section
             id="portfolio"
             className="section mb-[clamp(124px,_25vw,_256px)]"
-            variants={container}
+            variants={containerAnimation}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}
@@ -81,7 +58,7 @@ export default function PortfolioSection() {
                         .map((p) => (
                                 <motion.div
                                     key={p.id}
-                                    variants={item}
+                                    variants={childAnimation}
                                     onMouseEnter={() => setHovered(p.id)}
                                     onMouseLeave={() => setHovered(null)}
                                 >
@@ -97,7 +74,7 @@ export default function PortfolioSection() {
                             </motion.div>
                         ))}
                 </motion.div>
-            <motion.div variants={item} className="mt-24 w-full flex justify-center">
+            <motion.div variants={childAnimation} className="mt-24 w-full flex justify-center">
                 <Link href="/portfolio" className="w-full sm:w-1/2">
                     <Button className="w-full">{dict.portfolioSection.button}</Button>
                 </Link>

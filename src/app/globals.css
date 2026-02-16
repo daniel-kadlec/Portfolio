@@ -112,9 +112,7 @@ html, body {
 }
 
 body {
-    @apply antialiased;
-    background: var(--color-offblack);
-    color: var(--color-offwhite);
+    @apply antialiased bg-offwhite text-offblack dark:bg-offblack dark:text-offwhite;
 }
 
 

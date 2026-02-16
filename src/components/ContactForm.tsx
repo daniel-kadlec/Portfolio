@@ -82,14 +82,14 @@ export default function ContactForm({showToast }: ContactFormProps) {
         setErrors((prev) => ({ ...prev, [field]: false }));
     }
     const container = {
-        hidden: { opacity: 0, y: 40, scale: 0.97, filter: "blur(8px)" },
+        hidden: { opacity: 0, y: 40, scale: 0.97, filter: "blur(20px)" },
         visible: {
             opacity: 1,
             y: 0,
             scale: 1,
             filter: "blur(0px)",
             transition: {
-                duration: 0.8,
+                duration: 0.5,
                 ease: "easeOut" as const
             }
         },

@@ -14,6 +14,7 @@ import { ProjectType } from "../types/project";
 import {AnimatePresence, motion} from "framer-motion";
 import ProjectGallery from "../../components/Gallery/ProjectGallery";
 import Lightbox from "@/components/Gallery/Lightbox";
+import { childAnimation, containerAnimation } from "@/utils/animations";
 export default function Project({ project }: { project: ProjectType }) {
     const params = useParams();
     const router = useRouter();
@@ -32,30 +33,6 @@ export default function Project({ project }: { project: ProjectType }) {
 
     project = getProject(params.project as string, lang)!;
     if (!project) notFound();
-
-    const container = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.15,
-            },
-        },
-    };
-
-    const item = {
-        hidden: { opacity: 0, y: 20, filter: "blur(10px)", scale: 0.98 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1] as const,
-            },
-        },
-    };
 
     const images = [
         project.image_main,
@@ -147,13 +124,13 @@ export default function Project({ project }: { project: ProjectType }) {
             <motion.section
                 id="project"
                 className="section !max-w-[1550px] relative py-[clamp(112px,_25vw,_150px)]"
-                variants={container}
+                variants={containerAnimation}
                 initial="hidden"
                 whileInView="visible"
                 animate="visible"
             >
                 <motion.div
-                    variants={item}
+                    variants={childAnimation}
                     onHoverStart={handleAnimate}
                     animate={
                         isAnimating
@@ -180,54 +157,54 @@ export default function Project({ project }: { project: ProjectType }) {
                     <IoPlayBackCircle className=" text-offblack dark:text-offwhite w-full h-full" />
                 </motion.div>
 
-                <motion.div variants={item} className="flex flex-col mt-10">
-                    <motion.h1 variants={item} className="text-h1">
+                <motion.div variants={childAnimation} className="flex flex-col mt-10">
+                    <motion.h1 variants={childAnimation} className="text-h1">
                         {project.title}
                     </motion.h1>
-                    <motion.h2 variants={item} className="text-subheading-green">
+                    <motion.h2 variants={childAnimation} className="text-subheading-green">
                         {project.subtitle}
                     </motion.h2>
-                    <motion.p variants={item} className="text-secondary mt-8">
+                    <motion.p variants={childAnimation} className="text-secondary mt-8">
                         {project.description}
                     </motion.p>
                 </motion.div>
 
                 <motion.div
-                    variants={item}
+                    variants={childAnimation}
                     className="flex flex-col lg:flex-row justify-between gap-8 sm:gap-12 mt-12"
                 >
                     <motion.div
-                        variants={item}
+                        variants={childAnimation}
                         className="project-section !p-[clamp(24px,_2vw,_32px)] w-full flex flex-col gap-6"
                     >
-                        <motion.div variants={item}>
+                        <motion.div variants={childAnimation}>
                             <h2 className="text-h2">{dict.project.technical_title}</h2>
                             <h3 className="text-subheading-green">{dict.project.technical_subtitle}</h3>
                         </motion.div>
-                        <motion.p variants={item} className="text-secondary">
+                        <motion.p variants={childAnimation} className="text-secondary">
                             {project.technical_description}
                         </motion.p>
-                        <motion.div variants={item}>
+                        <motion.div variants={childAnimation}>
                             <Technologies techs={project.technologies as TechName[]} />
                         </motion.div>
                     </motion.div>
 
                     <motion.div
-                        variants={item}
+                        variants={childAnimation}
                         className="flex flex-col gap-0 lg:gap-6 justify-between font-secondary w-full"
                     >
-                        <motion.div variants={item} className="w-full">
+                        <motion.div variants={childAnimation} className="w-full">
                             <div className="scale-y-[-1] hidden lg:block">
                                 <HopperElement />
                             </div>
                         </motion.div>
 
                         <motion.div
-                            variants={item}
+                            variants={childAnimation}
                             className="flex flex-row lg:flex-col justify-between items-end lg:justify-end gap-6 text text-left lg:text-right"
                         >
                             <div className="flex flex-col gap-6">
-                                <motion.span variants={item} className="flex flex-col">
+                                <motion.span variants={childAnimation} className="flex flex-col">
                                     <h3 className="text-h2">{project.anchorTitle1}</h3>
                                     {project.anchor1 && (
                                         <Link
@@ -239,7 +216,7 @@ export default function Project({ project }: { project: ProjectType }) {
                                         </Link>
                                     )}
                                 </motion.span>
-                                <motion.span variants={item} className="flex flex-col">
+                                <motion.span variants={childAnimation} className="flex flex-col">
                                     <h3 className="text-h2">{project.anchorTitle2}</h3>
                                     {project.anchor2 && (
                                         <Link
@@ -253,18 +230,18 @@ export default function Project({ project }: { project: ProjectType }) {
                                 </motion.span>
                             </div>
 
-                            <motion.div variants={item} className="hidden sm:block lg:hidden scale-x-[-1]">
+                            <motion.div variants={childAnimation} className="hidden sm:block lg:hidden scale-x-[-1]">
                                 <HopperElement />
                             </motion.div>
                         </motion.div>
                     </motion.div>
                 </motion.div>
 
-                <motion.div variants={item} className="w-full mt-6 sm:mt-16">
+                <motion.div variants={childAnimation} className="w-full mt-6 sm:mt-16">
                 </motion.div>
 
                 <motion.div
-                    variants={item}>
+                    variants={childAnimation}>
                     <ProjectGallery
                         images={images}
                         alt={alt}

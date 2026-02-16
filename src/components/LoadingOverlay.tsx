@@ -43,7 +43,12 @@ export default function LoadingOverlay({
 
     return (
         <>
+            <noscript>
+                <style>{`.app-loader{display:none!important}.app-content{opacity:1!important}`}</style>
+            </noscript>
+
             <motion.div
+                className="app-content"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: ready ? 1 : 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
@@ -55,7 +60,7 @@ export default function LoadingOverlay({
                 {!ready && (
                     <motion.div
                         key="app-loader"
-                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-offwhite dark:bg-offblack text"
+                        className="app-loader fixed inset-0 z-[9999] flex items-center justify-center bg-offwhite dark:bg-offblack text"
                         initial={{ opacity: 1 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
