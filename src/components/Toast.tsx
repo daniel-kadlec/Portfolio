@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {useLanguage} from "@/utils/LanguageContext";
 
 interface ToastProps {
@@ -11,13 +12,18 @@ interface ToastProps {
 
 export default function Toast({ id, message, success}: ToastProps) {
     const { dict } = useLanguage();
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     return (
         <motion.div
             key={id}
             layout
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={hydrated ? { opacity: 1, y: 0 } : undefined}
             exit={{ opacity: 0, y: 30 }}
             transition={{ duration: 0.3, layout: { duration: 0.25 } }}
             className={`relative px-8 py-6 w-full sm:w-fit rounded-none sm:rounded-xl shadow-lg border-0 border-t-2 sm:border-2 overflow-hidden text flex flex-col bg-gray-200 dark:bg-gray-900 ${
@@ -39,7 +45,7 @@ export default function Toast({ id, message, success}: ToastProps) {
                     success ? "bg-green-primary" : "bg-red-error"
                 }`}
                 initial={{ scaleX: 1, transformOrigin: "left" }}
-                animate={{ scaleX: 0 }}
+                animate={hydrated ? { scaleX: 0 } : undefined}
                 transition={{ duration: 4, ease: "linear" }}
             />
         </motion.div>

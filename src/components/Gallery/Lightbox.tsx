@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { IoIosClose } from "react-icons/io";
@@ -16,6 +19,11 @@ type LightboxProps = {
 
 
 export default function Lightbox({images, image_description, index, onClose, onNext, onPrev}: LightboxProps) {
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     return (
         <>
@@ -23,7 +31,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
                 className="fixed inset-0 z-[99] bg-black/75"
                 key="lightbox-backdrop"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={hydrated ? { opacity: 1 } : undefined}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
             />
@@ -31,7 +39,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
                 key="lightbox-content"
                 className="fixed inset-0 z-[100] flex"
                 initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
+                animate={hydrated ? { opacity: 1, scale: 1 } : undefined}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 onClick={onClose}
@@ -45,7 +53,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
                             <motion.div className={'flex justify-between lightboxText'}
                                         key={index}
                                         initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
+                                        animate={hydrated ? { opacity: 1 } : undefined}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}>
                                 <h1>{image_description[index]}</h1>
@@ -57,7 +65,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
                                 <motion.div
                                     key={index}
                                     initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
+                                    animate={hydrated ? { opacity: 1 } : undefined}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                     className="w-fit"

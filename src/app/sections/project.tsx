@@ -23,6 +23,11 @@ export default function Project({ project }: { project: ProjectType }) {
     const [openedImage, setOpenedImage] = useState(0);
 
     const [isAnimating, setIsAnimating] = useState(false);
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     const handleAnimate = () => {
         if (!isAnimating) {
@@ -127,15 +132,17 @@ export default function Project({ project }: { project: ProjectType }) {
                 variants={containerAnimation}
                 initial="hidden"
                 whileInView="visible"
-                animate="visible"
+                animate={hydrated ? "visible" : undefined}
             >
                 <motion.div
                     variants={childAnimation}
                     onHoverStart={handleAnimate}
                     animate={
-                        isAnimating
+                        hydrated
+                            ? isAnimating
                             ? { rotate: [0, 30, -30, 15, -10, 0] }
                             : { rotate: 0 }
+                            : undefined
                     }
                     transition={
                         isAnimating

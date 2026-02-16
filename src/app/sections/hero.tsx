@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import { useLanguage } from "@/utils/LanguageContext";
@@ -10,6 +11,11 @@ import Button from "../../components/Button";
 
 export default function Hero() {
     const { dict } = useLanguage();
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     return (
         <section className="section min-h-screen flex flex-col justify-center relative">
@@ -25,7 +31,7 @@ export default function Hero() {
                         scale: 0.97,
                         filter: "blur(4px)",
                     }}
-                    animate={{
+                    animate={hydrated ? {
                         opacity: 1,
                         y: 0,
                         scale: 1,
@@ -37,7 +43,7 @@ export default function Hero() {
                             filter: { delay: 0.6, duration: 0.8 },
                             letterSpacing: { delay: 0.6, duration: 0.8 },
                         },
-                    }}
+                    } : undefined}
                 >
                     {dict.hero.heading()}
                 </motion.h1>
@@ -50,7 +56,7 @@ export default function Hero() {
                         scale: 0.97,
                         filter: "blur(4px)",
                     }}
-                    animate={{
+                    animate={hydrated ? {
                         opacity: 1,
                         y: 0,
                         scale: 1,
@@ -62,7 +68,7 @@ export default function Hero() {
                             filter: { delay: 0.7, duration: 0.8 },
                             letterSpacing: { delay: 0.7, duration: 0.8 },
                         },
-                    }}
+                    } : undefined}
                 >
                     {dict.hero.paragraph()}
                 </motion.h2>
@@ -77,12 +83,12 @@ export default function Hero() {
                     scale: 0.95,
                     filter: "blur(8px)",
                 }}
-                animate={{
+                animate={hydrated ? {
                     opacity: 1,
                     y: 0,
                     scale: 1,
                     filter: "blur(0px)",
-                }}
+                } : undefined}
                 transition={{
                     delay: 0.8,
                     duration: 0.9,

@@ -3,7 +3,7 @@
 import { useLanguage } from "@/utils/LanguageContext";
 import { projectsCz } from "@/data/projects/projects.cz";
 import { projectsEn } from "@/data/projects/projects.en";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Heading from "@/components/Heading";
 import Project from "@/components/Project";
 import { AnimatePresence, motion } from "framer-motion";
@@ -15,8 +15,13 @@ export default function PortfolioPage() {
     const projects = lang === "cz" ? projectsCz : projectsEn;
 
     const [activeFilter, setActiveFilter] = useState("all");
+    const [hydrated, setHydrated] = useState(false);
 
     const [hovered, setHovered] = useState<string | null>(null);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     const getStyle = (id: string) => {
         const isHovered = hovered === id;
@@ -49,7 +54,7 @@ export default function PortfolioPage() {
             className="section min-h-screen mb-[clamp(64px,_20vw,_128px)]"
             variants={containerAnimation}
             initial="hidden"
-            animate="visible"
+            animate={hydrated ? "visible" : undefined}
         >
             <Heading
                 className="mt-[clamp(112px,_15vw,_224px)]"
@@ -107,7 +112,7 @@ export default function PortfolioPage() {
                             key={p.id}
                             variants={childAnimation}
                             initial="hidden"
-                            animate="visible"
+                            animate={hydrated ? "visible" : undefined}
                             exit="hidden"
                             onMouseEnter={() => setHovered(p.id)}
                             onMouseLeave={() => setHovered(null)}

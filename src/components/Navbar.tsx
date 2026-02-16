@@ -22,6 +22,7 @@ export default function Navbar() {
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [hydrated, setHydrated] = useState(false);
 
     const goHome = (hash?: string, e?: React.MouseEvent) => {
         e?.preventDefault();
@@ -32,6 +33,10 @@ export default function Navbar() {
             router.push(hash ? `/#${hash}` : '/');
         }
     };
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -70,12 +75,12 @@ export default function Navbar() {
                 opacity: 0,
                 filter: "blur(8px)"
             }}
-            animate={{
+            animate={hydrated ? {
                 y: 0,
                 scale: 1,
                 opacity: 1,
                 filter: "blur(0px)"
-            }}
+            } : undefined}
             transition={{
                 duration: 0.8,
                 ease: "easeInOut",
