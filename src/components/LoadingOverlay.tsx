@@ -54,8 +54,8 @@ export default function LoadingOverlay({
 
             <motion.div
                 className="app-content"
-                initial={hydrated ? { opacity: 0 } : false}
-                animate={{ opacity: ready ? 1 : 0 }}
+                initial={{ opacity: 0 }}
+                animate={hydrated ? { opacity: ready ? 1 : 0 } : undefined}
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
                 {children}
@@ -66,8 +66,8 @@ export default function LoadingOverlay({
                     <motion.div
                         key="app-loader"
                         className="app-loader fixed inset-0 z-[9999] flex items-center justify-center bg-offwhite dark:bg-offblack text"
-                        initial={hydrated ? { opacity: 1 } : false}
-                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 1 }}
+                        animate={hydrated ? { opacity: 1 } : undefined}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
                         aria-live="polite"

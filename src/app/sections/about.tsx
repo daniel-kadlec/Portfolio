@@ -20,8 +20,8 @@ export default function About() {
             id="about"
             className="section flex flex-col md:flex-row mb-[clamp(124px,_25vw,_256px)]"
             variants={containerAnimation}
-            initial={hydrated ? "hidden" : false}
-            whileInView="visible"
+            initial="hidden"
+            whileInView={hydrated ? "visible" : undefined}
             viewport={{ once: true, amount: 0.5}}
         >
             <motion.div

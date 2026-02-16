@@ -108,8 +108,8 @@ export default function ContactForm({showToast }: ContactFormProps) {
             id="contactform"
             onSubmit={submitForm}
             className="flex flex-col gap-4 w-full lg:w-1/2 text flex-1"
-            initial={hydrated ? "hidden" : false}
-            whileInView="visible"
+            initial="hidden"
+            whileInView={hydrated ? "visible" : undefined}
             variants={container}
             viewport={{ once: true, amount: 0.5 }}
         >

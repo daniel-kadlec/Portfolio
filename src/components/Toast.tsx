@@ -22,8 +22,8 @@ export default function Toast({ id, message, success}: ToastProps) {
         <motion.div
             key={id}
             layout
-            initial={hydrated ? { opacity: 0, y: 30 } : false}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={hydrated ? { opacity: 1, y: 0 } : undefined}
             exit={{ opacity: 0, y: 30 }}
             transition={{ duration: 0.3, layout: { duration: 0.25 } }}
             className={`relative px-8 py-6 w-full sm:w-fit rounded-none sm:rounded-xl shadow-lg border-0 border-t-2 sm:border-2 overflow-hidden text flex flex-col bg-gray-200 dark:bg-gray-900 ${
@@ -44,8 +44,8 @@ export default function Toast({ id, message, success}: ToastProps) {
                 className={`w-full h-1 absolute top-0 sm:bottom-0 left-0 rounded-full ${
                     success ? "bg-green-primary" : "bg-red-error"
                 }`}
-                initial={hydrated ? { scaleX: 1, transformOrigin: "left" } : false}
-                animate={{ scaleX: 0 }}
+                initial={{ scaleX: 1, transformOrigin: "left" }}
+                animate={hydrated ? { scaleX: 0 } : undefined}
                 transition={{ duration: 4, ease: "linear" }}
             />
         </motion.div>

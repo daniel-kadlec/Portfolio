@@ -38,8 +38,8 @@ export default function PortfolioSection() {
             id="portfolio"
             className="section mb-[clamp(124px,_25vw,_256px)]"
             variants={containerAnimation}
-            initial={hydrated ? "hidden" : false}
-            whileInView="visible"
+            initial="hidden"
+            whileInView={hydrated ? "visible" : undefined}
             viewport={{ once: true, amount: 0.6 }}
         >
             <Heading

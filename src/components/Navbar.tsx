@@ -69,18 +69,18 @@ export default function Navbar() {
     return (
         <motion.header
             className="section w-full fixed top-0 left-1/2 -translate-x-1/2 z-[99]"
-            initial={hydrated ? {
+            initial={{
                 y: "-100%",
                 scale: 0.9,
                 opacity: 0,
                 filter: "blur(8px)"
-            } : false}
-            animate={{
+            }}
+            animate={hydrated ? {
                 y: 0,
                 scale: 1,
                 opacity: 1,
                 filter: "blur(0px)"
-            }}
+            } : undefined}
             transition={{
                 duration: 0.8,
                 ease: "easeInOut",

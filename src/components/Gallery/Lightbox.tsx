@@ -28,16 +28,16 @@ export default function Lightbox({images, image_description, index, onClose, onN
             <motion.div
                 className="fixed inset-0 z-[99] bg-black/75"
                 key="lightbox-backdrop"
-                initial={hydrated ? { opacity: 0 } : false}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                animate={hydrated ? { opacity: 1 } : undefined}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
             />
             <motion.div
                 key="lightbox-content"
                 className="fixed inset-0 z-[100] flex"
-                initial={hydrated ? { opacity: 0, scale: 0.95 } : false}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={hydrated ? { opacity: 1, scale: 1 } : undefined}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 onClick={onClose}
@@ -50,8 +50,8 @@ export default function Lightbox({images, image_description, index, onClose, onN
                         <AnimatePresence mode="popLayout">
                             <motion.div className={'flex justify-between lightboxText'}
                                         key={index}
-                                        initial={hydrated ? { opacity: 0 } : false}
-                                        animate={{ opacity: 1 }}
+                                        initial={{ opacity: 0 }}
+                                        animate={hydrated ? { opacity: 1 } : undefined}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}>
                                 <h1>{image_description[index]}</h1>
@@ -62,8 +62,8 @@ export default function Lightbox({images, image_description, index, onClose, onN
                             <AnimatePresence mode="popLayout">
                                 <motion.div
                                     key={index}
-                                    initial={hydrated ? { opacity: 0 } : false}
-                                    animate={{ opacity: 1 }}
+                                    initial={{ opacity: 0 }}
+                                    animate={hydrated ? { opacity: 1 } : undefined}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                     className="w-fit"

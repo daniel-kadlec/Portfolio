@@ -25,13 +25,13 @@ export default function Hero() {
             <motion.div className="relative z-10 flex flex-col justify-start">
                 <motion.h1
                     className="text-h1 !text-[clamp(36px,_7vw,_64px)]"
-                    initial={hydrated ? {
+                    initial={{
                         opacity: 0,
                         y: 20,
                         scale: 0.97,
                         filter: "blur(4px)",
-                    } : false}
-                    animate={{
+                    }}
+                    animate={hydrated ? {
                         opacity: 1,
                         y: 0,
                         scale: 1,
@@ -43,20 +43,20 @@ export default function Hero() {
                             filter: { delay: 0.6, duration: 0.8 },
                             letterSpacing: { delay: 0.6, duration: 0.8 },
                         },
-                    }}
+                    } : undefined}
                 >
                     {dict.hero.heading()}
                 </motion.h1>
 
                 <motion.h2
                     className="text-body-large"
-                    initial={hydrated ? {
+                    initial={{
                         opacity: 0,
                         y: 20,
                         scale: 0.97,
                         filter: "blur(4px)",
-                    } : false}
-                    animate={{
+                    }}
+                    animate={hydrated ? {
                         opacity: 1,
                         y: 0,
                         scale: 1,
@@ -68,7 +68,7 @@ export default function Hero() {
                             filter: { delay: 0.7, duration: 0.8 },
                             letterSpacing: { delay: 0.7, duration: 0.8 },
                         },
-                    }}
+                    } : undefined}
                 >
                     {dict.hero.paragraph()}
                 </motion.h2>
@@ -77,18 +77,18 @@ export default function Hero() {
             {/* Social icons & button */}
             <motion.div
                 className="relative z-10 flex flex-col items-end gap-[clamp(10px,_4vw,_20px)] mt-[clamp(48px,_4vw,_32px)]"
-                initial={hydrated ? {
+                initial={{
                     opacity: 0,
                     y: 20,
                     scale: 0.95,
                     filter: "blur(8px)",
-                } : false}
-                animate={{
+                }}
+                animate={hydrated ? {
                     opacity: 1,
                     y: 0,
                     scale: 1,
                     filter: "blur(0px)",
-                }}
+                } : undefined}
                 transition={{
                     delay: 0.8,
                     duration: 0.9,

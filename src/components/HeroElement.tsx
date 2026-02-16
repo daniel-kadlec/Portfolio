@@ -11,8 +11,8 @@ export default function HeroElement() {
     return (
         <motion.div
             className="absolute top-[-250px] md:top-[-300px] right-[-550px] xs:right-[-500px] rotate-[320deg] flex flex-col gap-8 z-0 scale-50 xs:scale-75 md:scale-100"
-            initial={hydrated ? { opacity: 0, x:50 } : false}
-            animate={{ opacity: 1, x:0 }}
+            initial={{ opacity: 0, x:50 }}
+            animate={hydrated ? { opacity: 1, x:0 } : undefined}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.8 }}
         >
             <div className="hero-element" />

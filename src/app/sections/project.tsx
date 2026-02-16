@@ -130,9 +130,9 @@ export default function Project({ project }: { project: ProjectType }) {
                 id="project"
                 className="section !max-w-[1550px] relative py-[clamp(112px,_25vw,_150px)]"
                 variants={containerAnimation}
-                initial={hydrated ? "hidden" : false}
-                whileInView="visible"
-                animate="visible"
+                initial="hidden"
+                whileInView={hydrated ? "visible" : undefined}
+                animate={hydrated ? "visible" : undefined}
             >
                 <motion.div
                     variants={childAnimation}

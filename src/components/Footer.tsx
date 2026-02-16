@@ -24,13 +24,13 @@ export default function Footer() {
     return (
         <motion.footer
             className="section overflow-hidden"
-            initial={hydrated ? { opacity: 0, y: -40, filter: "blur(8px)" } : false}
-            whileInView={{
+            initial={{ opacity: 0, y: -40, filter: "blur(8px)" }}
+            whileInView={hydrated ? {
                 opacity: 1,
                 y: 0,
                 filter: "blur(0px)",
                 transition: { duration: 0.6, ease: "easeOut", delay: 0.2},
-            }}
+            } : undefined}
             viewport={{ once: true, amount: 0.2 }}
         >
             <div className="bg-gray-200 dark:bg-[#0C0C0E] border-2 shadow-xl border-gray-100 dark:border-gray-900 w-full py-[clamp(_24px,_1.5vw,_36px)] rounded-[16px] sm:rounded-[24px] mb-8 px-[clamp(_24px,_1.5vw,_48px)] flex justify-between items-center transition duration-500">

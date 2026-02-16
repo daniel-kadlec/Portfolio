@@ -19,8 +19,8 @@ export default function Button({ children, className, ...props }: ButtonProps) {
     return (
         <motion.button
             {...props}
-            initial={hydrated ? "initial" : false}
-            whileHover="hover"
+            initial="initial"
+            whileHover={hydrated ? "hover" : undefined}
             className={`relative overflow-hidden flex justify-center text-left items-center gap-3 py-[clamp(12px,_2vw,_15px)] px-[clamp(42px,_6vw,_64px)] border-2 rounded-full font-secondary font-bold text-[clamp(15px,_2vw,_20px)] text-offblack dark:text-offwhite hover:text-offwhite hover:dark:text-offblack border-offblack dark:border-offwhite transition-all cursor-pointer ${className}`}
         >
             <span className="relative z-10 pointer-events-none">

@@ -59,8 +59,8 @@ export default function SocialIcons({ isSmall }: IconsProps) {
         <motion.span
             className="flex items-center"
             variants={container}
-            initial={hydrated ? "hidden" : false}
-            animate="visible"
+            initial="hidden"
+            animate={hydrated ? "visible" : undefined}
         >
             {[
                 { id: "github", icon: FaGithub, href: "https://github.com/Decayyer107" },
