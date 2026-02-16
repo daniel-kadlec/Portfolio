@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import ToastContainer from "../../components/ToastContainer";
 import ContactForm from "../../components/ContactForm";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { childAnimation, containerAnimation } from "@/utils/animations";
 
 interface ToastItem {
@@ -18,6 +18,11 @@ interface ToastItem {
 export default function Contact() {
     const { dict } = useLanguage();
     const [toasts, setToasts] = useState<ToastItem[]>([]);
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     function showToast(message: string, success: boolean | null) {
         const id = Date.now();
@@ -30,7 +35,7 @@ export default function Contact() {
             <motion.section
                 id="contact"
                 className="section flex mb-[clamp(64px,_15vw,_120px)] flex-col"
-                initial="hidden"
+                initial={hydrated ? "hidden" : false}
                 whileInView="visible"
                 variants={containerAnimation}
                 viewport={{ once: true, amount: 0.5 }}
@@ -45,7 +50,7 @@ export default function Contact() {
                         <motion.p variants={childAnimation} className="text text-body-large font-bold">
                             {dict.contact.paragraph()}
                         </motion.p>
-                        <SocialLinks/>
+                        <SocialLinks hydrated={hydrated} />
                     </motion.div>
 
                     <ContactForm showToast={showToast} />
@@ -57,7 +62,7 @@ export default function Contact() {
     );
 }
 
-function SocialLinks() {
+function SocialLinks({ hydrated }: { hydrated: boolean }) {
     const { dict } = useLanguage();
     const links = [
         { href: "https://github.com/Decayyer107", label: "Github", icon: <FaGithub className="contact-icon" /> },
@@ -69,7 +74,7 @@ function SocialLinks() {
     return (
         <motion.div
             className="text text-[clamp(20px,2vw,34px)] font-bold flex justify-center px-10 xs:px-0 xs:grid xs:grid-cols-2 lg:flex lg:flex-col gap-12 xs:gap-6 mt-8"
-            initial="hidden"
+            initial={hydrated ? "hidden" : false}
             whileInView="visible"
             variants={containerAnimation}
             viewport={{ once: true, amount: 0.5 }}

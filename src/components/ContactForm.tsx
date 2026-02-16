@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Input from "@/components/Input";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {useLanguage} from "@/utils/LanguageContext";
 import Button from "@/components/Button";
 
@@ -21,6 +21,12 @@ export default function ContactForm({showToast }: ContactFormProps) {
         message: false,
         subject: false,
     });
+
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     function validateEmail(email: string) {
         const regex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim;
@@ -102,7 +108,7 @@ export default function ContactForm({showToast }: ContactFormProps) {
             id="contactform"
             onSubmit={submitForm}
             className="flex flex-col gap-4 w-full lg:w-1/2 text flex-1"
-            initial="hidden"
+            initial={hydrated ? "hidden" : false}
             whileInView="visible"
             variants={container}
             viewport={{ once: true, amount: 0.5 }}

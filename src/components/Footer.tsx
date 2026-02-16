@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { useTheme } from '@/utils/ThemeContext';
 import LanguageSwitcher from './LanguageSwicther';
 import ThemeSwitcher from './ThemeSwitcher';
@@ -14,11 +15,16 @@ const LogoSecondary = "/logo/logomark-secondary.svg";
 
 export default function Footer() {
     const { theme, toggleTheme } = useTheme();
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     return (
         <motion.footer
             className="section overflow-hidden"
-            initial={{ opacity: 0, y: -40, filter: "blur(8px)" }}
+            initial={hydrated ? { opacity: 0, y: -40, filter: "blur(8px)" } : false}
             whileInView={{
                 opacity: 1,
                 y: 0,

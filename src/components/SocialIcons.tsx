@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -13,6 +13,11 @@ interface IconsProps {
 
 export default function SocialIcons({ isSmall }: IconsProps) {
     const [hovered, setHovered] = useState<string | null>(null);
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     const baseClasses = "cursor-pointer transition-all duration-600 ease-out text";
 
@@ -54,7 +59,7 @@ export default function SocialIcons({ isSmall }: IconsProps) {
         <motion.span
             className="flex items-center"
             variants={container}
-            initial="hidden"
+            initial={hydrated ? "hidden" : false}
             animate="visible"
         >
             {[

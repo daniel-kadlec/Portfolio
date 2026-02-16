@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import HopperElement from "@/components/HopperElement";
 import Heading from "@/components/Heading";
 import { useLanguage } from "@/utils/LanguageContext";
@@ -8,13 +9,18 @@ import { childAnimation, containerAnimation } from "@/utils/animations";
 
 export default function About() {
     const { dict } = useLanguage();
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     return (
         <motion.section
             id="about"
             className="section flex flex-col md:flex-row mb-[clamp(124px,_25vw,_256px)]"
             variants={containerAnimation}
-            initial="hidden"
+            initial={hydrated ? "hidden" : false}
             whileInView="visible"
             viewport={{ once: true, amount: 0.5}}
         >

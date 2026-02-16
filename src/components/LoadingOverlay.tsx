@@ -19,6 +19,11 @@ export default function LoadingOverlay({
     children: React.ReactNode;
 }) {
     const [ready, setReady] = React.useState(false);
+    const [hydrated, setHydrated] = React.useState(false);
+
+    React.useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     React.useEffect(() => {
         let cancelled = false;
@@ -49,7 +54,7 @@ export default function LoadingOverlay({
 
             <motion.div
                 className="app-content"
-                initial={{ opacity: 0 }}
+                initial={hydrated ? { opacity: 0 } : false}
                 animate={{ opacity: ready ? 1 : 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
@@ -61,7 +66,7 @@ export default function LoadingOverlay({
                     <motion.div
                         key="app-loader"
                         className="app-loader fixed inset-0 z-[9999] flex items-center justify-center bg-offwhite dark:bg-offblack text"
-                        initial={{ opacity: 1 }}
+                        initial={hydrated ? { opacity: 1 } : false}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}

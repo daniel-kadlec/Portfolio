@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/utils/LanguageContext";
 import Project from "@/components/Project";
 import Heading from "@/components/Heading";
@@ -17,6 +17,11 @@ export default function PortfolioSection() {
     const projects = lang === "cz" ? projectsCz : projectsEn;
 
     const [hovered, setHovered] = useState<string | null>(null);
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     const getStyle = (id: string) => {
         const isHovered = hovered === id;
@@ -33,7 +38,7 @@ export default function PortfolioSection() {
             id="portfolio"
             className="section mb-[clamp(124px,_25vw,_256px)]"
             variants={containerAnimation}
-            initial="hidden"
+            initial={hydrated ? "hidden" : false}
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}
         >

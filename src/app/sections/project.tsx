@@ -23,6 +23,7 @@ export default function Project({ project }: { project: ProjectType }) {
     const [openedImage, setOpenedImage] = useState(0);
 
     const [isAnimating, setIsAnimating] = useState(false);
+    const [hydrated, setHydrated] = useState(false);
 
     const handleAnimate = () => {
         if (!isAnimating) {
@@ -76,6 +77,10 @@ export default function Project({ project }: { project: ProjectType }) {
     const isMobile = useIsMobile(450);
 
     useEffect(() => {
+        setHydrated(true);
+    }, []);
+
+    useEffect(() => {
         if (!isLightboxOpen) return;
 
         const scrollY = window.scrollY;
@@ -125,7 +130,7 @@ export default function Project({ project }: { project: ProjectType }) {
                 id="project"
                 className="section !max-w-[1550px] relative py-[clamp(112px,_25vw,_150px)]"
                 variants={containerAnimation}
-                initial="hidden"
+                initial={hydrated ? "hidden" : false}
                 whileInView="visible"
                 animate="visible"
             >

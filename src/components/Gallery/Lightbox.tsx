@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { IoIosClose } from "react-icons/io";
 import {motion, AnimatePresence} from "framer-motion";
@@ -16,13 +17,18 @@ type LightboxProps = {
 
 
 export default function Lightbox({images, image_description, index, onClose, onNext, onPrev}: LightboxProps) {
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     return (
         <>
             <motion.div
                 className="fixed inset-0 z-[99] bg-black/75"
                 key="lightbox-backdrop"
-                initial={{ opacity: 0 }}
+                initial={hydrated ? { opacity: 0 } : false}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
@@ -30,7 +36,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
             <motion.div
                 key="lightbox-content"
                 className="fixed inset-0 z-[100] flex"
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={hydrated ? { opacity: 0, scale: 0.95 } : false}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -44,7 +50,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
                         <AnimatePresence mode="popLayout">
                             <motion.div className={'flex justify-between lightboxText'}
                                         key={index}
-                                        initial={{ opacity: 0 }}
+                                        initial={hydrated ? { opacity: 0 } : false}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}>
@@ -56,7 +62,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
                             <AnimatePresence mode="popLayout">
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0 }}
+                                    initial={hydrated ? { opacity: 0 } : false}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}

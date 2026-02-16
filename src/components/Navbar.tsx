@@ -22,6 +22,7 @@ export default function Navbar() {
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [hydrated, setHydrated] = useState(false);
 
     const goHome = (hash?: string, e?: React.MouseEvent) => {
         e?.preventDefault();
@@ -32,6 +33,10 @@ export default function Navbar() {
             router.push(hash ? `/#${hash}` : '/');
         }
     };
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -64,12 +69,12 @@ export default function Navbar() {
     return (
         <motion.header
             className="section w-full fixed top-0 left-1/2 -translate-x-1/2 z-[99]"
-            initial={{
+            initial={hydrated ? {
                 y: "-100%",
                 scale: 0.9,
                 opacity: 0,
                 filter: "blur(8px)"
-            }}
+            } : false}
             animate={{
                 y: 0,
                 scale: 1,

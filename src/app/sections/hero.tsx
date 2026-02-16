@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { useLanguage } from "@/utils/LanguageContext";
 import HeroElement from "@/components/HeroElement";
@@ -10,6 +11,11 @@ import Button from "../../components/Button";
 
 export default function Hero() {
     const { dict } = useLanguage();
+    const [hydrated, setHydrated] = useState(false);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     return (
         <section className="section min-h-screen flex flex-col justify-center relative">
@@ -19,12 +25,12 @@ export default function Hero() {
             <motion.div className="relative z-10 flex flex-col justify-start">
                 <motion.h1
                     className="text-h1 !text-[clamp(36px,_7vw,_64px)]"
-                    initial={{
+                    initial={hydrated ? {
                         opacity: 0,
                         y: 20,
                         scale: 0.97,
                         filter: "blur(4px)",
-                    }}
+                    } : false}
                     animate={{
                         opacity: 1,
                         y: 0,
@@ -44,12 +50,12 @@ export default function Hero() {
 
                 <motion.h2
                     className="text-body-large"
-                    initial={{
+                    initial={hydrated ? {
                         opacity: 0,
                         y: 20,
                         scale: 0.97,
                         filter: "blur(4px)",
-                    }}
+                    } : false}
                     animate={{
                         opacity: 1,
                         y: 0,
@@ -71,12 +77,12 @@ export default function Hero() {
             {/* Social icons & button */}
             <motion.div
                 className="relative z-10 flex flex-col items-end gap-[clamp(10px,_4vw,_20px)] mt-[clamp(48px,_4vw,_32px)]"
-                initial={{
+                initial={hydrated ? {
                     opacity: 0,
                     y: 20,
                     scale: 0.95,
                     filter: "blur(8px)",
-                }}
+                } : false}
                 animate={{
                     opacity: 1,
                     y: 0,
