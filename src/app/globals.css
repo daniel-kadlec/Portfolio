@@ -114,6 +114,9 @@ html, body {
 body {
     @apply antialiased bg-offwhite text-offblack dark:bg-offblack dark:text-offwhite;
 }
+html {
+    scrollbar-gutter: stable;
+}
 
 
 #__next,
