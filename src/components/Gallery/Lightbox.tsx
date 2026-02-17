@@ -2,7 +2,6 @@ import Image from "next/image";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { IoIosClose } from "react-icons/io";
 import {motion, AnimatePresence} from "framer-motion";
-import {images} from "next/dist/build/webpack/config/blocks/images";
 
 
 type LightboxProps = {
@@ -20,7 +19,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
     return (
         <>
             <motion.div
-                className="fixed inset-0 z-[99] bg-black/75"
+                className="fixed inset-0 z-[99] bg-black/75 backdrop-blur-xs"
                 key="lightbox-backdrop"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
