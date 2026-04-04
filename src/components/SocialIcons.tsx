@@ -58,8 +58,8 @@ export default function SocialIcons({ isSmall }: IconsProps) {
             animate="visible"
         >
             {[
-                { id: "github", icon: FaGithub, href: "https://github.com/Decayyer107" },
-                { id: "twitter", icon: FaInstagram, href: "https://www.instagram.com/kadlec.design/" },
+                { id: "github", icon: FaGithub, href: "https://github.com/daniel-kadlec" },
+                { id: "instagram", icon: FaInstagram, href: "https://www.instagram.com/kadlec.design/" },
                 { id: "linkedin", icon: FaLinkedin, href: "https://www.linkedin.com/in/daniel-kadlec-903759379/" },
                 { id: "email", icon: FaEnvelope, href: "mailto:kontakt@danielkadlec.cz" },
             ].map(({ id, icon: Icon, href }) => (
