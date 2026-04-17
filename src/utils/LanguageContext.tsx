@@ -1,8 +1,12 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { defaultLocale, type Locale } from '@/i18n-config';
 import { getDictionary, type Dictionary } from '@/dictionaries/dictionaries';
+
+export const locales = ['en', 'cz'] as const;
+export type Locale = (typeof locales)[number];
+const defaultLocale: Locale = 'cz';
+
 
 type LanguageContextType = {
     lang: Locale;
