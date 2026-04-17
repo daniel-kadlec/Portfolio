@@ -23,6 +23,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
         const stored = localStorage.getItem('locale');
         if (stored === 'cz' || stored === 'en') {
             setLangState(stored);
+            return;
+        }
+        const browserLang = navigator.language.toLowerCase();
+        if (browserLang.startsWith('cs') || browserLang.startsWith('cz')) {
+            setLangState('cz');
+        } else if (browserLang.startsWith('en')) {
+            setLangState('en');
         }
     }, []);
 
