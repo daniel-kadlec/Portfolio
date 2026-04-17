@@ -1,6 +1,6 @@
 import en from "./en";
 import cz from "./cz";
-import { Locale } from "@/i18n-config";
+import { type Locale } from "@/utils/LanguageContext";
 
 type Dict = typeof en;
 
