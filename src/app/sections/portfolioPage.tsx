@@ -6,8 +6,6 @@ import { projectsEn } from "@/data/projects/projects.en";
 import { useState } from "react";
 import Heading from "@/components/Heading";
 import Project from "@/components/Project";
-import { AnimatePresence, motion } from "framer-motion";
-import { childAnimation, containerAnimation } from "@/utils/animations";
 
 
 export default function PortfolioPage() {
@@ -44,12 +42,9 @@ export default function PortfolioPage() {
             );
 
     return (
-        <motion.section
+        <section
             id="portfolio"
             className="section min-h-screen mb-[clamp(64px,_20vw,_128px)]"
-            variants={containerAnimation}
-            initial="hidden"
-            animate="visible"
         >
             <Heading
                 className="mt-[clamp(112px,_15vw,_224px)]"
@@ -58,8 +53,7 @@ export default function PortfolioPage() {
             />
 
             {/* Filters */}
-            <motion.div
-                variants={childAnimation}
+            <div
                 className="w-full flex justify-end mt-12 sm:mt-0"
             >
                 <div className="flex flex-col justify-end">
@@ -87,7 +81,7 @@ export default function PortfolioPage() {
                         ))}
                     </div>
                 </div>
-            </motion.div>
+            </div>
 
             <div
                 className="
@@ -101,14 +95,9 @@ export default function PortfolioPage() {
                     max-md:[&>*:nth-child(even)]:mt-0
                 "
             >
-                <AnimatePresence mode="wait">
                     {filteredProjects.map((p) => (
-                        <motion.div
+                        <div
                             key={p.id}
-                            variants={childAnimation}
-                            initial="hidden"
-                            animate="visible"
-                            exit="hidden"
                             onMouseEnter={() => setHovered(p.id)}
                             onMouseLeave={() => setHovered(null)}
                         >
@@ -123,10 +112,9 @@ export default function PortfolioPage() {
                                     }
                                 />
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
-                </AnimatePresence>
             </div>
-        </motion.section>
+        </section>
     );
 }

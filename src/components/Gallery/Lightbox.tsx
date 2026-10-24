@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { IoIosClose } from "react-icons/io";
-import {motion, AnimatePresence} from "framer-motion";
 
 
 type LightboxProps = {
@@ -18,21 +17,13 @@ export default function Lightbox({images, image_description, index, onClose, onN
 
     return (
         <>
-            <motion.div
+            <div
                 className="fixed inset-0 z-[99] bg-black/75 backdrop-blur-xs"
                 key="lightbox-backdrop"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
             />
-            <motion.div
+            <div
                 key="lightbox-content"
                 className="fixed inset-0 z-[100] flex"
-                initial={{ opacity: 0}}
-                animate={{ opacity: 1}}
-                exit={{ opacity: 0}}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
                 onClick={onClose}
             >
 
@@ -40,27 +31,12 @@ export default function Lightbox({images, image_description, index, onClose, onN
                         className="m-auto"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <AnimatePresence mode="popLayout">
-                            <motion.div className={'flex justify-between lightboxText'}
-                                        key={index}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        transition={{ duration: 0.3, ease: "easeInOut" }}>
+                        <div className={'flex justify-between lightboxText'}>
                                 <h1>{image_description[index]}</h1>
                                 <h1>{index + 1} / {images.length}</h1>
-                            </motion.div>
-                        </AnimatePresence>
+                        </div>
                         <div className="relative">
-                            <AnimatePresence mode="popLayout">
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    className="w-fit"
-                                >
+                                <div className="w-fit">
                                     <Image
                                         src={images[index]}
                                         alt={image_description[index]}
@@ -68,8 +44,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
                                         height={4000}
                                         className="w-auto h-auto max-w-[95vw] xl:max-w-[78vw] max-h-[90vh] object-contain rounded-xl"
                                     />
-                                </motion.div>
-                            </AnimatePresence>
+                                </div>
 
                         </div>
 
@@ -95,7 +70,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
                             <IoIosClose className={'text-[44px] -mb-[2px]'}/>
                         </button>
                     </div>
-                </motion.div>
+                </div>
         </>
 
     );

@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from "framer-motion";
 import { useTheme } from '@/utils/ThemeContext';
 import LanguageSwitcher from './LanguageSwicther';
 import ThemeSwitcher from './ThemeSwitcher';
@@ -16,17 +15,7 @@ export default function Footer() {
     const { theme, toggleTheme } = useTheme();
 
     return (
-        <motion.footer
-            className="section overflow-hidden"
-            initial={{ opacity: 0, y: -40, filter: "blur(8px)" }}
-            whileInView={{
-                opacity: 1,
-                y: 0,
-                filter: "blur(0px)",
-                transition: { duration: 0.6, ease: "easeOut", delay: 0.2},
-            }}
-            viewport={{ once: true, amount: 0.2 }}
-        >
+        <footer className="section overflow-hidden">
             <div className="bg-gray-200 dark:bg-[#0C0C0E] border-2 shadow-xl border-gray-100 dark:border-gray-900 w-full py-[clamp(_24px,_1.5vw,_36px)] rounded-[16px] sm:rounded-[24px] mb-8 px-[clamp(_24px,_1.5vw,_48px)] flex justify-between items-center transition duration-500">
                 <div className="scale-y-[-1]">
                     <HopperElement className="hidden lg:block" />
@@ -67,6 +56,6 @@ export default function Footer() {
                     <HopperElement className="hidden lg:block" />
                 </div>
             </div>
-        </motion.footer>
+        </footer>
     );
 }

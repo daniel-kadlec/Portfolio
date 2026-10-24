@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { useLanguage } from "@/utils/LanguageContext";
 import Project from "@/components/Project";
@@ -10,7 +9,6 @@ import { projectsCz } from "@/data/projects/projects.cz";
 import Button from "@/components/Button";
 import Link from "next/link";
 import {TechName} from "@/components/Technologies";
-import { childAnimation, containerAnimation } from "@/utils/animations";
 
 export default function PortfolioSection() {
     const { lang, dict } = useLanguage();
@@ -29,19 +27,15 @@ export default function PortfolioSection() {
     };
 
     return (
-        <motion.section
+        <section
             id="portfolio"
             className="section mb-[clamp(124px,_25vw,_256px)]"
-            variants={containerAnimation}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.6 }}
         >
             <Heading
                 Heading={dict.portfolioSection.heading()}
                 Subheading={dict.portfolioSection.subheading}
             />
-                <motion.div
+                <div
                     className="
                     grid
                     grid-cols-1
@@ -56,9 +50,8 @@ export default function PortfolioSection() {
                     {projects
                         .filter((p) => p.featured)
                         .map((p) => (
-                                <motion.div
+                                <div
                                     key={p.id}
-                                    variants={childAnimation}
                                     onMouseEnter={() => setHovered(p.id)}
                                     onMouseLeave={() => setHovered(null)}
                                 >
@@ -71,14 +64,14 @@ export default function PortfolioSection() {
                                             techs={p.technologies  as TechName[]}
                                         />
                                     </div>
-                            </motion.div>
+                                </div>
                         ))}
-                </motion.div>
-            <motion.div variants={childAnimation} className="mt-24 w-full flex justify-center">
+                </div>
+            <div className="mt-24 w-full flex justify-center">
                 <Link href="/portfolio" className="w-full sm:w-1/2">
                     <Button className="w-full">{dict.portfolioSection.button}</Button>
                 </Link>
-            </motion.div>
-        </motion.section>
+            </div>
+        </section>
     );
 }

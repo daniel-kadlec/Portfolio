@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
@@ -34,47 +33,25 @@ export default function SocialIcons({ isSmall }: IconsProps) {
         ? "px-[clamp(_6px,_2vw,_15px)]"
         : "px-[clamp(_6px,_2vw,_15px)]";
 
-    const container = {
-        hidden: {},
-        visible: {
-            transition: { delayChildren: 0.5, staggerChildren: 0.2 }
-        },
-    };
-
-    const item = {
-        hidden: { opacity: 0, y: 15 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.4, ease: "easeOut" as const},
-        },
-    };
-
     return (
-        <motion.span
-            className="flex items-center"
-            variants={container}
-            initial="hidden"
-            animate="visible"
-        >
+        <span className="flex items-center">
             {[
                 { id: "github", icon: FaGithub, href: "https://github.com/daniel-kadlec" },
                 { id: "instagram", icon: FaInstagram, href: "https://www.instagram.com/kadlec.design/" },
                 { id: "linkedin", icon: FaLinkedin, href: "https://www.linkedin.com/in/daniel-kadlec-903759379/" },
                 { id: "email", icon: FaEnvelope, href: "mailto:kontakt@danielkadlec.cz" },
             ].map(({ id, icon: Icon, href }) => (
-                <motion.a
+                <a
                     key={id}
                     href={href}
                     target={"_blank"}
-                    variants={item}
                     className={gapClass}
                     onMouseEnter={() => setHovered(id)}
                     onMouseLeave={() => setHovered(null)}
                 >
                     <Icon className={`${getStyle(id)} ${sizeClass}`} />
-                </motion.a>
+                </a>
             ))}
-        </motion.span>
+        </span>
     );
 }

@@ -2,12 +2,10 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import LoadingOverlay from "@/components/LoadingOverlay";
 import { ThemeProvider, useTheme } from "@/utils/ThemeContext";
 import { LanguageProvider } from "@/utils/LanguageContext";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import useScroll from "@/hooks/useScroll";
 
 function BackgroundLayers() {
     const { theme } = useTheme();
@@ -44,8 +42,6 @@ function BackgroundLayers() {
 
 export default function ClientRoot({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
-    useScroll();
-
     const shouldHideNav =
         /^\/(?!portfolio$)[^/]+$/.test(pathname) || // "/slug" but NOT "/portfolio"
         /^\/portfolio\/[^/]+$/.test(pathname);      // "/portfolio/slug"
@@ -53,7 +49,6 @@ export default function ClientRoot({ children }: { children: React.ReactNode }) 
     return (
         <ThemeProvider>
             <LanguageProvider>
-                {/*<LoadingOverlay>*/}
                     <div className="relative min-h-screen overflow-x-hidden antialiased">
                         <BackgroundLayers />
                         <div className="relative z-10 transition-all duration-500">
@@ -62,7 +57,6 @@ export default function ClientRoot({ children }: { children: React.ReactNode }) 
                             {!shouldHideNav && <Footer />}
                         </div>
                     </div>
-                {/*</LoadingOverlay>*/}
             </LanguageProvider>
         </ThemeProvider>
     );

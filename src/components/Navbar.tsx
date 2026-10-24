@@ -10,7 +10,6 @@ import Image from "next/image";
 import { TbMenuDeep } from "react-icons/tb";
 import HamburgerMenu from "@/components/HamburgerMenu";
 import NavLinks from "@/components/NavLinks";
-import { motion } from "framer-motion";
 
 
 const LogoPrimary = "/logo/logomark-primary.svg";
@@ -62,29 +61,7 @@ export default function Navbar() {
 
 
     return (
-        <motion.header
-            className="section w-full fixed top-0 left-1/2 -translate-x-1/2 z-[99]"
-            initial={{
-                y: "-100%",
-                scale: 0.9,
-                opacity: 0,
-                filter: "blur(8px)"
-            }}
-            animate={{
-                y: 0,
-                scale: 1,
-                opacity: 1,
-                filter: "blur(0px)"
-            }}
-            transition={{
-                duration: 0.8,
-                ease: "easeInOut",
-                times: [0, 0.5, 1],
-                y: { duration: 0.8, ease: "easeInOut", delay: 0.5,},
-                opacity: { duration: 0.8 },
-                filter: {duration: 0.7, ease: "easeInOut", delay: 0.7, },
-            }}
-        >
+        <header className="section w-full fixed top-0 left-1/2 -translate-x-1/2 z-[99]">
 
         <HamburgerMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
 
@@ -119,7 +96,7 @@ export default function Navbar() {
                     <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
                 </div>
             </nav>
-        </motion.header>
+        </header>
 
     );
 }

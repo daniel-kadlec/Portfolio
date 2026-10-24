@@ -4,7 +4,6 @@ import { useLanguage } from "@/utils/LanguageContext";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 interface NavLinksProps {
     className?: string;
@@ -61,7 +60,7 @@ export default function NavLinks({ className, onLinkClick }: NavLinksProps) {
             className={`gap-[clamp(15px,_2vw,_48px)] font-secondary font-bold text-md hidden md:flex ${className}`}
         >
             {links.map(({ id, label, hash, href }) => (
-                <motion.li
+                <li
                     key={id}
                     onMouseEnter={() => setHovered(id)}
                     onMouseLeave={() => setHovered(null)}
@@ -74,7 +73,7 @@ export default function NavLinks({ className, onLinkClick }: NavLinksProps) {
                     >
                         {label}
                     </Link>
-                </motion.li>
+                </li>
             ))}
         </ul>
     );
