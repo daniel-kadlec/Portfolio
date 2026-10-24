@@ -1,14 +1,11 @@
 "use client";
 
 import LanguageSwitcher from "@/components/LanguageSwicther";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { IoIosClose } from "react-icons/io";
-import { useTheme } from '@/utils/ThemeContext';
 import Image from "next/image";
 import NavLinks from "@/components/NavLinks";
 
 const LogoPrimary = "/logo/logomark-primary.svg";
-const LogoSecondary = "/logo/logomark-secondary.svg";
 
 interface HamburgerMenuProps {
     isOpen: boolean;
@@ -16,8 +13,6 @@ interface HamburgerMenuProps {
 }
 
 export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
-    const { theme, toggleTheme } = useTheme();
-
     return (
         <nav
             className={`fixed left-0 top-0 w-screen h-screen bg-white/90 dark:bg-black/90 backdrop-blur-xs
@@ -29,7 +24,7 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                 <div className="flex gap-2 justify-center items-center mb-8">
                     <div className="relative w-20 h-20">
                         <Image
-                            src={theme === "dark" ? LogoPrimary : LogoSecondary}
+                            src={LogoPrimary}
                             alt="Logo"
                             fill
                             className="object-contain cursor-pointer"
@@ -42,7 +37,6 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                 <NavLinks className="!flex !flex-col !text-center" onLinkClick={onClose} />
                 <div className={'flex justify-center items-center gap-4 mt-12 scale-[130%]'}>
                     <LanguageSwitcher/>
-                    <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
                 </div>
             </div>
         </nav>

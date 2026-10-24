@@ -1,8 +1,6 @@
 'use client'
 
-import { useTheme } from '@/utils/ThemeContext';
 import LanguageSwitcher from './LanguageSwicther';
-import ThemeSwitcher from './ThemeSwitcher';
 import { useRouter, usePathname } from 'next/navigation';
 import {useEffect, useState} from 'react';
 import Link from "next/link";
@@ -13,10 +11,8 @@ import NavLinks from "@/components/NavLinks";
 
 
 const LogoPrimary = "/logo/logomark-primary.svg";
-const LogoSecondary = "/logo/logomark-secondary.svg";
 
 export default function Navbar() {
-    const { theme, toggleTheme } = useTheme();
     const router = useRouter();
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
@@ -76,7 +72,7 @@ export default function Navbar() {
                     <Image
                         width={56}
                         height={56}
-                        src={theme === "dark" ? LogoPrimary : LogoSecondary}
+                        src={LogoPrimary}
                         alt="Logo"
                         className="cursor-pointer"
                         priority
@@ -93,7 +89,6 @@ export default function Navbar() {
 
                 <div className="gap-4 hidden md:flex">
                     <LanguageSwitcher />
-                    <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
                 </div>
             </nav>
         </header>
