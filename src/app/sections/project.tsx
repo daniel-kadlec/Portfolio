@@ -8,7 +8,6 @@ import { IoPlayBackCircle } from "react-icons/io5";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import { TechName } from "@/components/Technologies";
-import HopperElement from "@/components/HopperElement";
 import { notFound } from "next/navigation";
 import { ProjectType } from "../types/project";
 import ProjectGallery from "../../components/Gallery/ProjectGallery";
@@ -144,8 +143,8 @@ export default function Project({ project }: { project: ProjectType }) {
                         className="project-section !p-[clamp(24px,_2vw,_32px)] w-full flex flex-col gap-6"
                     >
                         <div>
-                            <h2 className="text-h2">{dict.project.technical_title}</h2>
-                            <h3 className="text-subheading-green">{dict.project.technical_subtitle}</h3>
+                            <h2 className="text-h2">title</h2>
+                            <h3 className="text-subheading-green">subtitle</h3>
                         </div>
                         <p className="text-secondary">
                             {project.technical_description}
@@ -160,7 +159,6 @@ export default function Project({ project }: { project: ProjectType }) {
                     >
                         <div className="w-full">
                             <div className="scale-y-[-1] hidden lg:block">
-                                <HopperElement />
                             </div>
                         </div>
 
@@ -195,7 +193,6 @@ export default function Project({ project }: { project: ProjectType }) {
                             </div>
 
                             <div className="hidden sm:block lg:hidden scale-x-[-1]">
-                                <HopperElement />
                             </div>
                         </div>
                     </div>

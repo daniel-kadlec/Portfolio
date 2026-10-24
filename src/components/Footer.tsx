@@ -1,7 +1,6 @@
 'use client'
 
 import LanguageSwitcher from './LanguageSwicther';
-import HopperElement from "@/components/HopperElement";
 import SocialIcons from "@/components/SocialIcons";
 import Image from "next/image";
 import NavLinks from "@/components/NavLinks";
@@ -13,7 +12,6 @@ export default function Footer() {
         <footer className="section overflow-hidden">
             <div className="bg-gray-200 dark:bg-[#0C0C0E] border-2 shadow-xl border-gray-100 dark:border-gray-900 w-full py-[clamp(_24px,_1.5vw,_36px)] rounded-[16px] sm:rounded-[24px] mb-8 px-[clamp(_24px,_1.5vw,_48px)] flex justify-between items-center transition duration-500">
                 <div className="scale-y-[-1]">
-                    <HopperElement className="hidden lg:block" />
                 </div>
 
                 <div className="flex flex-col justify-center items-center gap-[clamp(_14px,_1.5vw,_24px)]">
@@ -47,7 +45,6 @@ export default function Footer() {
                 </div>
 
                 <div className="scale-x-[-1]">
-                    <HopperElement className="hidden lg:block" />
                 </div>
             </div>
         </footer>

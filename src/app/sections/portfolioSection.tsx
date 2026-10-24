@@ -31,10 +31,6 @@ export default function PortfolioSection() {
             id="portfolio"
             className="section mb-[clamp(124px,_25vw,_256px)]"
         >
-            <Heading
-                Heading={dict.portfolioSection.heading()}
-                Subheading={dict.portfolioSection.subheading}
-            />
                 <div
                     className="
                     grid
@@ -69,7 +65,7 @@ export default function PortfolioSection() {
                 </div>
             <div className="mt-24 w-full flex justify-center">
                 <Link href="/portfolio" className="w-full sm:w-1/2">
-                    <Button className="w-full">{dict.portfolioSection.button}</Button>
+                    <Button className="w-full">nigger</Button>
                 </Link>
             </div>
         </section>

@@ -36,10 +36,10 @@ export default function NavLinks({ className, onLinkClick }: NavLinksProps) {
     }, [pathname]);
 
     const links = [
-        { id: "home", label: dict.nav.Home, hash: undefined, href: "/" },
-        { id: "about", label: dict.nav.About, hash: "about", href: "/#about" },
-        { id: "portfolio", label: dict.nav.Portfolio, hash: "portfolio", href: "/#portfolio" },
-        { id: "contact", label: dict.nav.Contact, hash: "contact", href: "/#contact" },
+        { id: "home", label: 'home', hash: undefined, href: "/" },
+        { id: "about", label: 'about', hash: "about", href: "/#about" },
+        { id: "portfolio", label: 'portfolio', hash: "portfolio", href: "/#portfolio" },
+        { id: "contact", label: 'dict.nav.Contact', hash: "contact", href: "/#contact" },
     ];
 
     const baseClasses =

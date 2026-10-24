@@ -27,9 +27,9 @@ export default function PortfolioPage() {
     };
 
     const filters = [
-        { key: "all", label: dict.portfolio.filters_all },
-        { key: "development", label: dict.portfolio.filters_development },
-        { key: "design", label: dict.portfolio.filters_design },
+        { key: "all", label: 'All' },
+        { key: "development", label: 'Development' },
+        { key: "design", label: 'Design' },
     ];
 
     const filteredProjects =
@@ -48,8 +48,8 @@ export default function PortfolioPage() {
         >
             <Heading
                 className="mt-[clamp(112px,_15vw,_224px)]"
-                Heading={dict.portfolio.heading()}
-                Subheading={dict.portfolio.subheading}
+                Heading='Heading'
+                Subheading='dict.portfolio.subheading'
             />
 
             {/* Filters */}

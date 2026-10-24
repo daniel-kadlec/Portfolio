@@ -3,7 +3,6 @@
 import Link from "next/link";
 
 import { useLanguage } from "@/utils/LanguageContext";
-import HeroElement from "@/components/HeroElement";
 import SocialIcons from "@/components/SocialIcons";
 import Button from "../../components/Button";
 
@@ -12,7 +11,6 @@ export default function Hero() {
 
     return (
         <section className="section min-h-screen flex flex-col justify-center relative">
-            <HeroElement />
 
             {/* Main heading & paragraph */}
             <div className="relative z-10 flex flex-col justify-start">
@@ -22,11 +20,6 @@ export default function Hero() {
                     {dict.hero.heading()}
                 </h1>
 
-                <h2
-                    className="text-body-large"
-                >
-                    {dict.hero.paragraph()}
-                </h2>
             </div>
 
             {/* Social icons & button */}
@@ -35,7 +28,7 @@ export default function Hero() {
             >
                 <SocialIcons isSmall={false} />
                 <Link href="/portfolio">
-                    <Button>{dict.hero.button}</Button>
+                    <Button>Nigger</Button>
                 </Link>
             </div>
         </section>
