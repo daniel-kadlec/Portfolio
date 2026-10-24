@@ -11,7 +11,7 @@ interface HeadingProps {
 
 export default function Heading({ Heading, Subheading, className }: HeadingProps) {
     return (
-        <div className={`mb-[clamp(32px,3vw,72px)] ${className ?? ""}`}>
+        <div className={`mb-[72px] ${className ?? ""}`}>
             <h1
                 className="text-h1 tracking-tight"
             >
@@ -20,7 +20,7 @@ export default function Heading({ Heading, Subheading, className }: HeadingProps
 
             {Subheading && (
                 <h2
-                    className="text-subheading mt-3 sm:mt-0 text-gray-300"
+                    className="text-subheading mt-3 text-gray-300"
                 >
                     {Subheading}
                 </h2>

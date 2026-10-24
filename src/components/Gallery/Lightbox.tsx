@@ -42,7 +42,7 @@ export default function Lightbox({images, image_description, index, onClose, onN
                                         alt={image_description[index]}
                                         width={4000}
                                         height={4000}
-                                        className="w-auto h-auto max-w-[95vw] xl:max-w-[78vw] max-h-[90vh] object-contain rounded-xl"
+                                        className="w-auto h-auto max-w-[95vw] max-h-[90vh] object-contain rounded-xl"
                                     />
                                 </div>
 
@@ -51,14 +51,14 @@ export default function Lightbox({images, image_description, index, onClose, onN
 
                         <button
                             onClick={onPrev}
-                            className="left-[20vw] md:left-8 lightboxButton lightboxButtonHover"
+                            className="left-[20vw] lightboxButton lightboxButtonHover"
                         >
                             <IoChevronBackOutline className={'w-full text-[36px] -ml-[3px]'} />
                         </button>
 
                         <button
                             onClick={onNext}
-                            className="right-[20vw] md:right-8 lightboxButton lightboxButtonHover"
+                            className="right-[20vw] lightboxButton lightboxButtonHover"
                         >
                             <IoChevronBackOutline className={'w-full text-[36px] rotate-180 ml-[2px]'} />
                         </button>

@@ -57,7 +57,7 @@ export default function NavLinks({ className, onLinkClick }: NavLinksProps) {
 
     return (
         <ul
-            className={`gap-[clamp(15px,_2vw,_48px)] font-secondary font-bold text-md hidden md:flex ${className}`}
+            className={`gap-[48px] font-secondary font-bold text-md flex ${className}`}
         >
             {links.map(({ id, label, hash, href }) => (
                 <li

@@ -64,7 +64,7 @@ export default function Navbar() {
             <nav
                 className={`nav-section h-20 flex items-center justify-between transition-all duration-500 rounded-full
                     ${scrolled
-                    ? 'w-[95%] sm:w-[85%] px-[clamp(_18px,_6vw,_42px)] mt-4 border border-neutral-300/100 dark:border-neutral-700/100 bg-offwhite/95 dark:bg-offblack/95 backdrop-blur-sm shadow-md'
+                    ? 'w-[95%] px-[42px] mt-4 border border-neutral-300/100 dark:border-neutral-700/100 bg-offwhite/95 dark:bg-offblack/95 backdrop-blur-sm shadow-md'
                     : 'w-full px-0 border border-neutral-300/0 dark:border-neutral-700/0 bg-transparent backdrop-blur-0 shadow-none'
                 }`}
             >
@@ -82,12 +82,12 @@ export default function Navbar() {
 
                 <TbMenuDeep
                     onClick={handleMenuOpen}
-                    className="block md:hidden text w-8 h-8 cursor-pointer"
+                    className="block text w-8 h-8 cursor-pointer"
                 />
 
                 <NavLinks />
 
-                <div className="gap-4 hidden md:flex">
+                <div className="gap-4 flex">
                     <LanguageSwitcher />
                 </div>
             </nav>

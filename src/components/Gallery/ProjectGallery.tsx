@@ -55,7 +55,7 @@ export default function ProjectGallery({
                 />
             )}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
                 {images.slice(1, 5).map((img, i) =>
                     img ? (
                         <GalleryImage

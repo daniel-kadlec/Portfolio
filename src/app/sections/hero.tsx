@@ -15,7 +15,7 @@ export default function Hero() {
             {/* Main heading & paragraph */}
             <div className="relative z-10 flex flex-col justify-start">
                 <h1
-                    className="text-h1 !text-[clamp(36px,_7vw,_64px)]"
+                    className="text-h1 !text-[64px]"
                 >
                     {dict.hero.heading()}
                 </h1>
@@ -24,7 +24,7 @@ export default function Hero() {
 
             {/* Social icons & button */}
             <div
-                className="relative z-10 flex flex-col items-end gap-[clamp(10px,_4vw,_20px)] mt-[clamp(48px,_4vw,_32px)]"
+                className="relative z-10 flex flex-col items-end gap-[20px] mt-[32px]"
             >
                 <SocialIcons isSmall={false} />
                 <Link href="/portfolio">

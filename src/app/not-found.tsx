@@ -9,7 +9,7 @@ export default function NotFound() {
 
     return (
         <section className="section min-h-screen flex flex-col items-center justify-center text-center gap-6">
-            <h1 className="text-h1 !text-[clamp(_64px,_7vw,_92px)] !text-green-secondary dark:!text-green-primary">
+            <h1 className="text-h1 !text-[92px] !text-green-secondary dark:!text-green-primary">
                 404
             </h1>
 

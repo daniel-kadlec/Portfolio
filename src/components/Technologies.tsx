@@ -86,7 +86,7 @@ export default function TechStack({ techs, className = "", size = 20 }: TechStac
     const techMap = getTechMap(size);
 
     return (
-        <div className={`flex flex-wrap gap-[clamp(12px,_1vw,_24px)] text-center ${className}`}>
+        <div className={`flex flex-wrap gap-[24px] text-center ${className}`}>
             {techs.map((tech) => {
                 const item = techMap[tech];
                 if (!item) return null;
@@ -96,7 +96,7 @@ export default function TechStack({ techs, className = "", size = 20 }: TechStac
                         className="py-2 px-4 flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-md font-bold transition-all duration-500 cursor-default"
                     >
                         {item.icon}
-                        <span className="!text-[clamp(12px,_1.5vw,_18px)] font-medium text-secondary">
+                        <span className="!text-[18px] font-medium text-secondary">
                             {item.label}
                         </span>
                     </div>

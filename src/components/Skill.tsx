@@ -10,7 +10,7 @@ interface FeatureCardProps {
 export default function Skill({ heading, paragraph, icon, className = "" }: FeatureCardProps) {
     return (
         <article
-            className={`w-full bg-gray-200 dark:bg-gray-900 rounded-xl p-[clamp(_24px,_3vw,_48px)] flex items-start justify-between gap-6 shadow-md transition duration-500 relative ${className}`}
+            className={`w-full bg-gray-200 dark:bg-gray-900 rounded-xl p-[48px] flex items-start justify-between gap-6 shadow-md transition duration-500 relative ${className}`}
         >
             <div className="flex flex-col gap-4">
                 <h3 className="text-h2">
@@ -20,7 +20,7 @@ export default function Skill({ heading, paragraph, icon, className = "" }: Feat
                     {paragraph}
                 </p>
             </div>
-            <div className="flex-shrink-0 text-green-secondart text-green-secondary dark:text-green-primary  text-[clamp(_42px,_5vw,_58px)] hidden xs:block absolute top-[clamp(_12px,_3vw,_32px)] right-[clamp(_12px,_3vw,_32px)]">
+            <div className="flex-shrink-0 text-green-secondart text-green-secondary dark:text-green-primary text-[58px] block absolute top-[32px] right-[32px]">
                 {icon}
             </div>
         </article>

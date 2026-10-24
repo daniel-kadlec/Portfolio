@@ -109,7 +109,7 @@ export default function Project({ project }: { project: ProjectType }) {
 
             <section
                 id="project"
-                className="section !max-w-[1550px] relative py-[clamp(112px,_25vw,_150px)]"
+                className="section !max-w-[1550px] relative py-[150px]"
             >
                 <div
                     onClick={() => {
@@ -137,10 +137,10 @@ export default function Project({ project }: { project: ProjectType }) {
                 </div>
 
                 <div
-                    className="flex flex-col lg:flex-row justify-between gap-8 sm:gap-12 mt-12"
+                    className="flex flex-col justify-between gap-8 mt-12"
                 >
                     <div
-                        className="project-section !p-[clamp(24px,_2vw,_32px)] w-full flex flex-col gap-6"
+                        className="project-section !p-[32px] w-full flex flex-col gap-6"
                     >
                         <div>
                             <h2 className="text-h2">title</h2>
@@ -155,15 +155,15 @@ export default function Project({ project }: { project: ProjectType }) {
                     </div>
 
                     <div
-                        className="flex flex-col gap-0 lg:gap-6 justify-between font-secondary w-full"
+                        className="flex flex-col gap-0 justify-between font-secondary w-full"
                     >
                         <div className="w-full">
-                            <div className="scale-y-[-1] hidden lg:block">
+                            <div className="scale-y-[-1]">
                             </div>
                         </div>
 
                         <div
-                            className="flex flex-row lg:flex-col justify-between items-end lg:justify-end gap-6 text text-left lg:text-right"
+                            className="flex flex-row justify-between items-end justify-end gap-6 text text-left text-right"
                         >
                             <div className="flex flex-col gap-6">
                                 <span className="flex flex-col">
@@ -192,13 +192,13 @@ export default function Project({ project }: { project: ProjectType }) {
                                 </span>
                             </div>
 
-                            <div className="hidden sm:block lg:hidden scale-x-[-1]">
+                            <div className="scale-x-[-1]">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="w-full mt-6 sm:mt-16">
+                <div className="w-full mt-6">
                 </div>
 
                 <div>

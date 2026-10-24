@@ -26,12 +26,12 @@ export default function SocialIcons({ isSmall }: IconsProps) {
     };
 
     const sizeClass = !isSmall
-        ? "w-[clamp(32px,5.5vw,48px)] h-[clamp(32px,5.5vw,48px)]"
-        : "w-[clamp(30px,5vw,32px)] h-[clamp(30px,5vw,32px)]";
+        ? "w-[48px] h-[48px]"
+        : "w-[32px] h-[32px]";
 
     const gapClass = !isSmall
-        ? "px-[clamp(_6px,_2vw,_15px)]"
-        : "px-[clamp(_6px,_2vw,_15px)]";
+        ? "px-[15px]"
+        : "px-[15px]";
 
     return (
         <span className="flex items-center">

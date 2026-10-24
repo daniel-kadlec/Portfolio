@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "./fonts.css";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 
 @theme {
     --color-offblack: #0B0B0D;
@@ -17,142 +15,63 @@
     --color-green-primary: #B5FF6D;
     --color-green-secondary: #30AF5B;
 
-    --color-red-error: #FF5C5C;
-
-
-    --breakpoint-2xs: 21.875rem; /* 350px */
-    --breakpoint-xs: 30rem;      /* 480px */
-    --breakpoint-sm: 40rem;      /* 640px */
-    --breakpoint-md: 48rem;      /* 768px */
-    --breakpoint-lg: 64rem;      /* 1024px */
-    --breakpoint-xl: 80rem;      /* 1280px */
-    --breakpoint-2xl: 96rem;     /* 1536px */
 }
 [id] {
     scroll-margin-top: 25vh;
 }
 
-@media (max-width: 768px) {
-    [id] {
-        scroll-margin-top: 15vh;
-    }
-}
-
-
-@media (max-width: 768px) {
-    [id] {
-        scroll-margin-top: 120px;
-    }
-}
-
 .section {
-    @apply mx-auto max-w-[1350px] px-[clamp(14px,_4vw,_100px)] sm:px-[clamp(20px,_6vw,_100px)];
+    @apply mx-auto max-w-[1350px] px-[100px];
 }
 .nav-section {
     @apply mx-auto max-w-[1350px];
 }
 
 .text-h1{
-    @apply text-offblack dark:text-offwhite font-primary text-[clamp(_42px,_5vw,_64px)] leading-[clamp(38px,_calc(4vw+16px),_58px)];
+    @apply text-offwhite font-primary text-[64px] leading-[58px];
 }
 .text-h2{
-    @apply text-offblack dark:text-offwhite font-primary text-[clamp(_36px,_calc(4vw+4px),_58px)] leading-[clamp(34px,_calc(2vw+20px),_58px)];
+    @apply text-offwhite font-primary text-[58px] leading-[58px];
 }
 .text-h3{
-    @apply text-offblack dark:text-offwhite font-primary text-[clamp(_32px,_calc(4vw+4px),_48px)] leading-[clamp(34px,_calc(2vw+20px),_58px)];
+    @apply text-offwhite font-primary text-[48px] leading-[58px];
 }
 .text-subheading{
-    @apply text-[#8c8ca6] font-secondary font-semibold text-[clamp(20px,_2vw,_26px)] leading-[clamp(24px,_calc(2vw+12px),_58px)] mt-2 lg:-mt-2;
+    @apply text-[#8c8ca6] font-secondary font-semibold text-[26px] leading-[58px] mt-2;
 }
 .text-subheading-green{
-    @apply text-green-secondary dark:text-green-primary font-secondary font-semibold text-[clamp(22px,_2.5vw,_30px)] -mt-[6px];
+    @apply text-green-primary font-secondary font-semibold text-[30px] -mt-[6px];
 }
 .text-body-large{
-    @apply text-offblack dark:text-offwhite font-secondary font-bold text-[clamp(18px,_3vw,_30px)] mt-[clamp(10px,_3vw,_20px)] leading-[clamp(20px,_calc(3vw),_34px)];
+    @apply text-offwhite font-secondary font-bold text-[30px] mt-[20px] leading-[34px];
 }
 .text-secondary{
-    @apply text-gray-500 dark:text-gray-300 font-medium text-[clamp(16px,_calc(1vw+6px),_18px)];
+    @apply text-gray-300 font-medium text-[18px];
 }
 .text{
-    @apply text-offblack dark:text-offwhite;
+    @apply text-offwhite;
 }
 .text-green{
-    @apply text-green-secondary dark:text-green-primary;
-}
-.text-highlighted{
-    @apply text-offblack dark:text-offwhite font-bold;
+    @apply text-green-primary;
 }
 .lightboxText{
-    @apply text-2xl font-[600] mb-4 dark:text-offwhite text-offblack  text-[clamp(16px,_calc(3vw),_28px)];
-}
-
-
-.hero-element{
-    @apply w-[1050px] h-[200px] rounded-[500px] bg-gray-200 dark:bg-gray-900 transition-all duration-500 shadow-[inset_0px_8px_2px_rgba(210,210,221,0.3)] dark:shadow-[rgba(7,7,8,0.8)];
-}
-.hopper-element{
-    @apply rounded-[500px] bg-offwhite dark:bg-gray-900 transition-all duration-500 shadow-[inset_4px_4px_6px_rgba(210,210,221,0.3)] dark:shadow-[rgba(7,7,8,0.8)];
+    @apply text-2xl font-[600] mb-4 text-offwhite text-[28px];
 }
 
 .project-section{
-    @apply bg-gray-200 dark:bg-gray-900 p-[clamp(12px,_3vw,_32px)] rounded-2xl shadow-md;
-}
-.project-image-small{
-    @apply relative aspect-[5/3] rounded-2xl shadow-xl overflow-hidden;
-}
-
-.contact-link{
-    @apply flex gap-[clamp(12px,2vw,24px)] items-center;
-}
-.contact-icon{
-    @apply text-[42px] md:text-[48px] lg:text-[56px];
-}
-html, body {
-    @apply h-full;
-}
-
-body {
-    @apply antialiased bg-offwhite text-offblack dark:bg-offblack dark:text-offwhite;
+    @apply bg-gray-900 p-[32px] rounded-2xl shadow-md;
 }
 html {
     scrollbar-gutter: stable;
 }
-
-
-#__next,
-main,
-#root {
-    @apply min-h-screen;
-}
-
-.spinner {
-    @apply w-16 h-16 rounded-full inline-block border-[8px] dark:border-offwhite border-offblack;
-
-    border-right-color: transparent;
-
-    animation: spin 0.8s linear infinite;
-}
-
-.lightboxButton{
-    @apply absolute top-[75%] md:top-1/2 bg-black/50 text-white rounded-full w-14 h-14 text-center cursor-pointer;
-}
-.lightboxButtonHover{
-    @apply hover:border-offwhite/100 border-offwhite/0 border-2 transition duration-300;
-}
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .spinner {
-        animation-duration: 5s;
-    }
-}
-
 html, body {
     height: 100%;
     scroll-behavior: auto !important;
+}
+.lightboxButton{
+    @apply absolute top-[75%] bg-black/50 text-white rounded-full w-14 h-14 text-center cursor-pointer;
+}
+.lightboxButtonHover{
+    @apply hover:border-offwhite/100 border-offwhite/0 border-2 transition duration-300;
 }
 

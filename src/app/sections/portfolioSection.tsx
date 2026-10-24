@@ -29,18 +29,15 @@ export default function PortfolioSection() {
     return (
         <section
             id="portfolio"
-            className="section mb-[clamp(124px,_25vw,_256px)]"
+            className="section mb-[256px]"
         >
                 <div
                     className="
                     grid
                     grid-cols-1
-                    md:grid-cols-2
-                    gap-[clamp(32px,_5vw,_64px)]
+                    gap-[64px]
                     mt-8
-                    lg:mt-4
-                    [&>*:nth-child(even)]:mt-[clamp(16px,_2vw,_32px)]
-                    max-md:[&>*:nth-child(even)]:mt-0
+                    [&>*:nth-child(even)]:mt-[32px]
                 "
                 >
                     {projects
@@ -64,7 +61,7 @@ export default function PortfolioSection() {
                         ))}
                 </div>
             <div className="mt-24 w-full flex justify-center">
-                <Link href="/portfolio" className="w-full sm:w-1/2">
+                <Link href="/portfolio" className="w-full">
                     <Button className="w-full">nigger</Button>
                 </Link>
             </div>

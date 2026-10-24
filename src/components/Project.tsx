@@ -19,7 +19,7 @@ export default function Project({ title, subtitle, techs, image, link, from = "i
 
     return (
         <Link href={href}>
-            <div className="flex flex-col gap-[clamp(10px,_1vw,_28px)]">
+            <div className="flex flex-col gap-[28px]">
                 <div className="relative aspect-[5/3] w-full rounded-2xl shadow-md overflow-hidden">
                     <Image
                         src={image}
@@ -29,7 +29,7 @@ export default function Project({ title, subtitle, techs, image, link, from = "i
                     />
                 </div>
                 <div className="flex flex-col justify-between w-fullf">
-                    <div className="px-1 md:px-0">
+                    <div className="px-1">
                         <h1 className="text-h3">{title}</h1>
                         <h2 className="text-subheading-green">{subtitle}</h2>
                     </div>
